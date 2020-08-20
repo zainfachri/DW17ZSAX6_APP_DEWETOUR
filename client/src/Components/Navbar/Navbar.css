@@ -1,0 +1,23 @@
+.navBg {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  height: 9.7vh;
+}
+.iconPic {
+  position: absolute;
+  width: 10%;
+  left: 79%;
+  padding-right: 30px;
+  top: 0;
+  text-align: right;
+  margin: 10px 100px;
+}
+.iconPic img {
+  cursor: pointer;
+  width: 60px;
+  border: solid 2px #ffaf00;
+  border-radius: 50%;
+}
+.iconPic img:hover {
+  box-shadow: -1px 1px 14px 3px #fff;
+}

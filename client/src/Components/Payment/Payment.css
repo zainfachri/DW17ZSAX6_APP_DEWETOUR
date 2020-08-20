@@ -1,0 +1,50 @@
+.payment {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #fff;
+}
+.paybtn button {
+  margin-top: 30px;
+  color: #fff;
+  width: 200px;
+}
+.inside-pay {
+  margin: 0 auto;
+  width: 100%;
+}
+.book-detail {
+  float: left;
+}
+.pay-name th {
+  font-size: 20px;
+}
+.book-img {
+  float: right;
+  text-align: center;
+  margin-top: 20px;
+}
+.pay-price td {
+  color: #959595;
+}
+.waiting-payment {
+  padding: 5px 10px;
+  color: #ec7a7a;
+  background-color: #ec7a7a26;
+}
+.payconfirmBg {
+  width: 100%;
+  height: 110vh;
+  padding-top: 35vh;
+  top: 0;
+  left: 0;
+  text-align: center;
+  position: fixed;
+  backdrop-filter: brightness(50%);
+}
+.payconfirm {
+  width: 400px;
+  border-radius: 5px;
+  margin: 0 auto;
+  font-weight: 500;
+  box-shadow: -1px 4px 3px rgba(0, 0, 0, 0.45) !important;
+}

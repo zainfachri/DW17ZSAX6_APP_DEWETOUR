@@ -1,0 +1,152 @@
+.top {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  height: 70%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.logo {
+  width: 200px;
+  margin-left: 60px;
+  cursor: pointer;
+}
+header {
+  display: flow-root;
+  width: 85%;
+  margin: 0 auto;
+}
+.menu {
+  float: right;
+  padding: 40px 0;
+}
+.menu button {
+  text-decoration: none;
+  margin-left: 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+.navBg button:hover {
+  box-shadow: -1px 1px 14px 3px #fff;
+}
+.find::placeholder {
+  opacity: 0;
+  font-size: 18px;
+}
+.reg,
+.log {
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 10px 25px;
+  color: #fff;
+  font-size: 16px;
+}
+.reg {
+  margin-right: 70px;
+  background-color: #ffaf00 !important;
+  border: solid 1px #ffaf00 !important;
+}
+.log {
+  margin-right: 20px;
+  border: solid 1px #fff;
+  background-color: transparent;
+}
+.head {
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 40px;
+  color: #fff;
+  font-size: 64px !important;
+  z-index: 0;
+}
+.sometext {
+  color: #fff;
+  width: 85%;
+  padding-left: 20px;
+  margin: 20px auto;
+}
+.input-group {
+  width: 85%;
+  margin: 0 auto;
+}
+.input-group button {
+  background-color: #ffaf00 !important;
+  color: #fff;
+}
+@media all and (max-width: 1366px) {
+  .head {
+    /* text-align: center; */
+    margin-top: 40px;
+  }
+  .btn-search {
+    padding-top: 20px;
+  }
+  .head > h1:nth-child(1) {
+    font-size: 65px !important;
+  }
+  .head > h1:nth-child(2) {
+    font-size: 45px !important;
+  }
+  .sometext {
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+}
+@media all and (max-width: 1200px) {
+  .head {
+    /* text-align: center; */
+    margin-top: 60px;
+  }
+  .logo {
+    margin-left: 70px;
+  }
+  .btn-search {
+    padding-top: 20px;
+  }
+  .find::placeholder {
+    opacity: 0.8;
+  }
+  .head > h1:nth-child(1) {
+    font-size: 65px !important;
+  }
+  .head > h1:nth-child(2) {
+    font-size: 45px !important;
+  }
+  .sometext {
+    display: none;
+  }
+}
+@media all and (max-width: 1000px) {
+  .head {
+    text-align: center;
+  }
+  .head > h1:nth-child(1) {
+    font-size: 55px !important;
+  }
+  .head > h1:nth-child(2) {
+    font-size: 45px !important;
+  }
+  .btn-search {
+    padding-top: 10px;
+  }
+  .logo {
+    margin-left: 40px;
+  }
+}
+@media all and (max-width: 900px) {
+  .head {
+    margin-top: 60px;
+  }
+  .btn-search {
+    padding-top: 60px;
+  }
+  .head > h1:nth-child(2) {
+    font-size: 35px !important;
+  }
+  .logo {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,183 @@
+.container {
+  width: 100% !important;
+}
+.card {
+  z-index: 1;
+  background-color: #fff;
+  width: 225px;
+  padding: 50px 25px;
+  margin: 30px 30px;
+  border-radius: 5px;
+  text-align: center;
+  float: left;
+}
+.benefit img {
+  margin-bottom: 20px !important;
+}
+.card img {
+  width: 40%;
+  margin: 0 auto;
+}
+.card h3 {
+  font-size: 22px;
+}
+.card p {
+  font-size: 16px;
+  color: #878787;
+}
+.main {
+  width: 100%;
+  margin: 50px auto;
+  display: inline-block;
+}
+.main > p {
+  font-size: 46px;
+  font-weight: 600;
+  text-align: center;
+}
+.picture p {
+  position: absolute;
+  margin-left: -55px;
+  width: 60px;
+  text-align: center;
+  background-color: #fff;
+  display: inline-block;
+  padding: 5px 10px;
+}
+.price {
+  margin-top: 10px;
+}
+.price p:nth-child(1) {
+  float: left;
+  font-weight: bold;
+  color: #ffaf00;
+}
+.price p:nth-child(2) {
+  float: right;
+  font-weight: bold;
+  color: #878787;
+}
+.list-tour {
+  flex: auto;
+  width: 30%;
+  margin: 5px;
+}
+.tour {
+  padding: 10px;
+  cursor: pointer;
+  color: black;
+  font-weight: 500;
+  background-color: #fff;
+  float: left;
+  transition: 0.2s;
+  margin: 30px;
+}
+.tour:hover {
+  border-radius: 20px 0 16px 0;
+  box-shadow: -1px 2px 14px 3px #ffaf00;
+}
+.benefit-card {
+  width: 100%;
+  display: flex;
+}
+.benefit-wrap {
+  margin: 0 auto;
+}
+.tour img {
+  width: 100%;
+}
+.tour > p {
+  font-size: 1.2rem;
+  margin-bottom: -5px;
+  text-align: justify;
+}
+.tourList {
+  width: 85%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}
+.menu-icon {
+  display: none !important;
+}
+@media all and (max-width: 1366px) {
+  .main {
+    padding: 20px;
+  }
+  .tourList {
+    width: 100%;
+  }
+}
+@media all and (max-width: 1200px) {
+  .tourList {
+    width: 100%;
+  }
+  .tour {
+    margin: 10px;
+  }
+  .card {
+    width: 200px;
+    padding: 40px 25px;
+    margin: 30px 10px;
+  }
+  .reg {
+    margin-right: 60px !important;
+  }
+}
+@media all and (max-width: 1000px) {
+  .main {
+    margin: auto;
+  }
+  .card {
+    width: 200px;
+    padding: 20px 25px;
+    margin: 30px 10px;
+  }
+  .card h3 {
+    font-size: 20px;
+  }
+  .card p {
+    font-size: 14px;
+    color: #878787;
+  }
+}
+@media all and (max-width: 900px) {
+  .menu-icon {
+    color: white;
+    float: right;
+    font-size: 25px !important;
+    padding: 21px 50px;
+    display: block !important;
+  }
+  .tourList {
+    width: 85%;
+  }
+  .list-tour {
+    width: 32%;
+  }
+  .card {
+    flex: auto;
+    width: 45%;
+    margin: 5px;
+  }
+  .auth {
+    display: none;
+  }
+  .benefit-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 35px;
+  }
+}
+@media all and (max-width: 748px) {
+  .list-tour {
+    width: 100%;
+  }
+  .tour {
+    width: 95%;
+  }
+  .footer {
+    padding: 0 50px;
+    height: 90px !important;
+  }
+}

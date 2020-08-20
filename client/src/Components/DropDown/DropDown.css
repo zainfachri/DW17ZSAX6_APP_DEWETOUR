@@ -1,0 +1,66 @@
+.drop-down {
+  position: absolute;
+  right: 0;
+  z-index: 4;
+  margin-top: 40px;
+  margin-right: 90px;
+  display: inline-block;
+  border-radius: 7px 7px 7px 7px;
+  box-shadow: -1px 4px 14px 3px rgba(0, 0, 0, 0.45) !important;
+}
+.drop-top a {
+  color: black;
+  text-decoration: none;
+}
+.triangle-up {
+  position: absolute;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 110px;
+  z-index: 5;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 40px solid #fff;
+}
+.drop-out-top {
+  background-color: #fff;
+  padding: 10px 0;
+  width: 200px;
+  text-align: left;
+  font-size: 20px;
+  border-radius: 7px 7px 0 0;
+}
+.drop-inside-top {
+  margin: 0 auto;
+  padding: 10px 30px;
+}
+.drop-out-bottom {
+  background-color: #fff;
+  padding: 10px 0;
+  border-top: 2px solid black;
+  width: 200px;
+  text-align: left;
+  font-size: 20px;
+  border-radius: 0 0 7px 7px;
+}
+.drop-inside-bottom {
+  margin: 0 auto;
+  padding: 10px 30px;
+}
+.drop-list {
+  cursor: pointer;
+  padding: 10px 0;
+}
+.drop-list i {
+  font-size: 26px;
+  text-align: center;
+  width: 50px;
+}
+.drop-list span {
+  width: 40px;
+  font-weight: 700;
+}
+.drop-list span:hover {
+  text-shadow: 2px 2px 4px #ffaf00;
+}

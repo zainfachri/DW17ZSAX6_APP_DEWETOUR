@@ -1,0 +1,43 @@
+.profileBg {
+  padding-top: 50px !important;
+  width: 100%;
+}
+.profile {
+  background-color: #fff;
+  width: 55%;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+.custom-file {
+  margin-top: 10px;
+}
+.person-info,
+.profile-img {
+  display: inline-block;
+}
+.person-info {
+  padding: 25px;
+  /* margin-right: 60px; */
+  width: 60%;
+}
+.personDesc {
+  overflow: auto;
+  margin-top: 20px;
+}
+.personIcon,
+.personIdentity {
+  float: left;
+  line-height: 9px;
+}
+.personIcon {
+  font-size: 34px;
+  width: 60px;
+  color: #8a8c90;
+  text-align: center;
+}
+.profilInfo {
+  padding-bottom: 10px;
+}
+.profName {
+  font-weight: 800;
+}

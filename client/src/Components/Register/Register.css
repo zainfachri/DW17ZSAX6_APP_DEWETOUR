@@ -1,0 +1,66 @@
+.register-page {
+  width: 100%;
+  height: 110vh;
+  padding-top: 8vh;
+  top: 0;
+  z-index: 2;
+  text-align: center;
+  position: fixed;
+  backdrop-filter: brightness(50%);
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+.form-control {
+  font-size: 14px !important;
+  padding: 22px 15px !important;
+}
+.register {
+  overflow: auto;
+  height: 80vh;
+  padding: 10px 30px;
+  width: 400px;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 0 auto;
+  position: relative;
+  font-weight: 500;
+  box-shadow: -1px 4px 14px 3px rgba(0, 0, 0, 0.45) !important;
+}
+.register p {
+  font-size: 18px;
+  text-align: left;
+}
+.register input {
+  padding: 15px 30px;
+  background-color: rgba(210, 210, 210, 0.25);
+  border: none;
+}
+.register button {
+  background-color: #ffaf00;
+  color: #fff;
+  padding: 15px 30px;
+  margin-top: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+}
+.register button:hover {
+  filter: brightness(90%);
+}
+.palm {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.hibiscus {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.clickHere {
+  cursor: pointer;
+  font-weight: bold;
+  color: #ffaf00;
+}

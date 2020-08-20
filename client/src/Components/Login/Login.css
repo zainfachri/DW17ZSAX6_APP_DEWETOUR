@@ -1,0 +1,71 @@
+.closed {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 5px;
+  color: #fff;
+  background-color: #ff3a2c;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.closed:hover {
+  filter: brightness(80%);
+  border-radius: 50%;
+}
+.login-page {
+  width: 100%;
+  height: 110vh;
+  padding-top: 15vh;
+  top: 0;
+  z-index: 2;
+  text-align: center;
+  position: fixed;
+  backdrop-filter: brightness(50%);
+}
+.login {
+  width: 400px;
+  background-color: #fff;
+  padding: 10px 25px 10px 25px;
+  border-radius: 5px;
+  margin: 0 auto;
+  position: relative;
+  font-weight: 500;
+  box-shadow: -1px 4px 14px 3px rgba(0, 0, 0, 0.45) !important;
+}
+.login input {
+  width: 100%;
+  padding: 20px 30px;
+  background-color: rgba(210, 210, 210, 0.25);
+  border: none;
+}
+.login p {
+  font-size: 22px;
+  text-align: left;
+}
+.login p:nth-child(1) {
+  margin-top: 40px;
+}
+.login button {
+  background-color: #ffaf00;
+  color: #fff;
+  padding: 15px 30px;
+  margin-top: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+}
+.login button:hover {
+  filter: brightness(90%);
+}
+.palm {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.hibiscus {
+  position: absolute;
+  right: 0;
+  top: 0;
+}

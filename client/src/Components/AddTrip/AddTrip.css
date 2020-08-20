@@ -1,0 +1,26 @@
+.add-trip-wrapper {
+  margin: 0 auto;
+  padding-top: 60px;
+}
+.day,
+.night {
+  border-radius: 6px;
+  border: none;
+  padding: 5px 10px;
+}
+.add-trip label {
+  padding-left: 6rem;
+  color: black;
+  font-weight: 700;
+}
+.add-trip span {
+  color: black;
+  font-weight: 600;
+  margin: 0 20px;
+}
+.add-trip-button {
+  margin: 50px 0;
+  width: 80%;
+  position: relative;
+  left: 9.5%;
+}
