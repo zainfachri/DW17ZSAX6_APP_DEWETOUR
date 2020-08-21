@@ -6,10 +6,11 @@ const { User } = require("../models");
 
 exports.register = async (req, res) => {
   try {
-    const { fullName, email, password, phone, address } = req.body;
+    const { fullName, roleId, email, password, phone, address } = req.body;
 
     const schema = joi.object({
       fullName: joi.string().min(3).required(),
+      roleId: joi.number(),
       email: joi.string().email().min(10).required(),
       password: joi.string().min(8).required(),
       phone: joi.string(),
@@ -45,6 +46,7 @@ exports.register = async (req, res) => {
 
     const user = await User.create({
       fullName,
+      roleId,
       email,
       password: hashedPassword,
       phone,
@@ -61,6 +63,10 @@ exports.register = async (req, res) => {
     res.status(200).send({
       message: "You registration is successful ",
       data: {
+        id: user.id,
+        fullName: user.fullName,
+        phone: user.phone,
+        address: user.address,
         email: user.email,
         token,
       },
@@ -128,6 +134,7 @@ exports.login = async (req, res) => {
       data: {
         id: user.id,
         fullName: user.fullName,
+        roleId: user.roleId,
         phone: user.phone,
         address: user.address,
         email: user.email,

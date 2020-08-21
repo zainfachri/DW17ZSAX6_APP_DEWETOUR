@@ -8,13 +8,14 @@ import "./Register.css";
 const Register = ({ setModalRegister, setModalLogin, handleLogin }) => {
   const [formRegister, setFormRegister] = useState({
     fullName: "",
+    roleId: 2,
     email: "",
     password: "",
     phone: "",
     address: "",
   });
   const [error, setError] = useState("");
-  const { fullName, email, password, phone, address } = formRegister;
+  const { fullName, roleId, email, password, phone, address } = formRegister;
 
   const handleChange = (event) => {
     setFormRegister({
@@ -32,6 +33,7 @@ const Register = ({ setModalRegister, setModalLogin, handleLogin }) => {
       );
       localStorage.setItem("token", res.data.data.token);
       localStorage.setItem("userId", res.data.data.id);
+      localStorage.setItem("userData", JSON.stringify(res.data.data));
       const token = localStorage.getItem("token");
       if (token) {
         handleLogin();

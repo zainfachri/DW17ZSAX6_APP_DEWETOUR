@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./DropDown.css";
 
 const DropDown = ({ showDropDown, logOut }) => {
+  const res = JSON.parse(localStorage.getItem("userData"));
   return (
     <>
       <div className="triangle-up"></div>
@@ -11,37 +12,42 @@ const DropDown = ({ showDropDown, logOut }) => {
         <div className="drop-out-top">
           <div className="drop-inside-top">
             <div className="drop-top">
-              <Link to="/profile">
-                <div className="drop-list" onClick={() => showDropDown()}>
-                  <i
-                    class="fa fa-user"
-                    aria-hidden="true"
-                    style={{ color: "#FFAF00" }}
-                  ></i>
-                  <span>Profile</span>
-                </div>
-              </Link>
-              <Link to="/payment-pending">
-                <div className="drop-list" onClick={() => showDropDown()}>
-                  <i
-                    class="fa fa-money"
-                    aria-hidden="true"
-                    style={{ color: "#87A900" }}
-                  ></i>
-                  <span>Pay</span>
-                </div>
-              </Link>
-              <Link to="/income-trip">
-                <div className="drop-list" onClick={() => showDropDown()}>
-                  <i
-                    class="fa fa-globe"
-                    aria-hidden="true"
-                    style={{ color: "#2FC5F7" }}
-                  ></i>
-                  <span>Trip</span>
-                </div>
-              </Link>
-              <Link to="/income-transaction">
+              {res.roleId == 1 ? (
+                <Link to="/income-trip">
+                  <div className="drop-list" onClick={() => showDropDown()}>
+                    <i
+                      class="fa fa-globe"
+                      aria-hidden="true"
+                      style={{ color: "#2FC5F7" }}
+                    ></i>
+                    <span>Trip</span>
+                  </div>
+                </Link>
+              ) : (
+                <>
+                  <Link to="/profile">
+                    <div className="drop-list" onClick={() => showDropDown()}>
+                      <i
+                        class="fa fa-user"
+                        aria-hidden="true"
+                        style={{ color: "#FFAF00" }}
+                      ></i>
+                      <span>Profile</span>
+                    </div>
+                  </Link>
+                  <Link to="/payment-pending">
+                    <div className="drop-list" onClick={() => showDropDown()}>
+                      <i
+                        class="fa fa-money"
+                        aria-hidden="true"
+                        style={{ color: "#87A900" }}
+                      ></i>
+                      <span>Pay</span>
+                    </div>
+                  </Link>
+                </>
+              )}
+              {/* <Link to="/income-transaction">
                 <div className="drop-list" onClick={() => showDropDown()}>
                   <i
                     class="fa fa-list"
@@ -50,7 +56,7 @@ const DropDown = ({ showDropDown, logOut }) => {
                   ></i>
                   <span>Income</span>
                 </div>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

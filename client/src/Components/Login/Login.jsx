@@ -30,17 +30,23 @@ const Login = ({ handleLogin, setModalLogin, setModalRegister }) => {
       );
       localStorage.setItem("token", res.data.data.token);
       localStorage.setItem("userId", res.data.data.id);
+      localStorage.setItem("admin", res.data.data.roleId);
       localStorage.setItem("userData", JSON.stringify(res.data.data));
       const token = localStorage.getItem("token");
-      if (token) {
+      const admin = localStorage.getItem("admin");
+      if (token && admin == 2) {
         handleLogin();
         history.push("/");
         // window.location.reload();
+      } else if (token && admin == 1) {
+        handleLogin();
+        history.push("/income-transaction");
       }
     } catch (err) {
       const resError = err.response.data.error.message;
       setError(resError);
       console.log(err);
+      console.log(resError);
     }
   };
 

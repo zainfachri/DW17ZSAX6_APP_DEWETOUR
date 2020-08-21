@@ -11,6 +11,16 @@ module.exports = {
       fullName: {
         type: Sequelize.STRING,
       },
+      roleId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: "UserRoles",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      },
       email: {
         type: Sequelize.STRING,
       },
@@ -21,7 +31,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       address: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
