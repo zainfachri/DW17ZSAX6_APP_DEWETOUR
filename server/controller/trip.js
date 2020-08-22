@@ -69,10 +69,13 @@ exports.showTripDetail = async (req, res) => {
 
 exports.createTrip = async (req, res) => {
   try {
-    const addTrip = await Trip.create(req.body, {
-      attributes: {
-        exclude: ["createdAt", "updatedAt"],
-      },
+    const { tripImage } = req.files;
+    const imageTripName = tripImage.name;
+    await tripImage.mv(`./uploads/${imageTripName}`);
+
+    const addTrip = await Trip.create({
+      ...req.body,
+      image: imageTripName,
     });
     res.status(200).send({
       message: "Trip has been Created",

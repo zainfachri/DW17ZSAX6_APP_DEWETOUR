@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const { upload } = require("../middleware/uploadImage");
+// const { upload } = require("../middleware/uploadImage");
+const fileUpload = require("express-fileupload");
 
 const {
   showCountry,
@@ -36,7 +37,7 @@ router.patch("/country/:id", updateCountry);
 
 router.get("/trip", showTrip);
 router.get("/trip/:id", showTripDetail);
-router.post("/trip", createTrip);
+router.post("/trip", fileUpload(), createTrip);
 router.patch("/trip/:id", updateTrip);
 router.delete("/trip/:id", deleteTrip);
 

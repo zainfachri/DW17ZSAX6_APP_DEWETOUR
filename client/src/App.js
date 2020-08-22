@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./App.css";
 import Home from "./Pages/Home";
+import PrivateUser from "./Components/PrivateRoute/PrivateUser";
+import PrivateAdmin from "./Components/PrivateRoute/PrivateAdmin";
 import DetailTour from "./Components/DetailTour/DetailTour";
 import Payment from "./Pages/Payment";
 import PaymentPending from "./Components/Payment/PaymentPending";
@@ -61,13 +63,21 @@ function App() {
             <DetailTour setModalLogin={setModalLogin} />
           </Route>
 
-          <Route exact path="/payment-pending" component={PaymentPending} />
-          <Route exact path="/payment/:id" component={Payment} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/income-transaction" component={IncomeTrans} />
-          <Route exact path="/income-trip" component={IncomeTrip} />
-          <Route exact path="/add-trip" component={AddTrip} />
-          <Route exact path="/income-action" component={IncomeAction} />
+          <PrivateUser
+            exact
+            path="/payment-pending"
+            component={PaymentPending}
+          />
+          <PrivateUser exact path="/payment/:id" component={Payment} />
+          <PrivateUser exact path="/profile" component={Profile} />
+          <PrivateAdmin
+            exact
+            path="/income-transaction"
+            component={IncomeTrans}
+          />
+          <PrivateAdmin exact path="/income-trip" component={IncomeTrip} />
+          <PrivateAdmin exact path="/add-trip" component={AddTrip} />
+          <PrivateAdmin exact path="/income-action" component={IncomeAction} />
         </Switch>
       </ScrollTop>
       <Footer />

@@ -41,13 +41,11 @@ const DetailTour = ({ setModalLogin }) => {
     setCounter({ ...transCount, total: result.data.data.price });
     setDetailTrip(resData);
   };
-
   const [newBooking] = useMutation(handleOrder, {
     onSuccess: () => {
       queryCache.prefetchQuery("trip");
     },
   });
-
   const { isLoading, data: detail } = useQuery("trip", fetchTourData);
 
   const handleBooking = () => {
@@ -63,28 +61,30 @@ const DetailTour = ({ setModalLogin }) => {
       {isLoading || !detailTrip || !detailTrip?.country ? (
         <h1>Loading...</h1>
       ) : (
-        <div className="detail-title" key={detailTrip.id}>
-          <h1>
-            {dayNight}
-            {detailTrip.title}
-          </h1>
-          <p style={{ fontSize: 22, color: "#A8A8A8", fontWeight: "700" }}>
-            {detailTrip.country.name}
-            {/* Country */}
-          </p>
-        </div>
+        <>
+          <div className="detail-title" key={detailTrip.id}>
+            <h1>
+              {dayNight}
+              {detailTrip.title}
+            </h1>
+            <p style={{ fontSize: 22, color: "#A8A8A8", fontWeight: "700" }}>
+              {detailTrip.country.name}
+              {/* Country */}
+            </p>
+          </div>
+          <ImageTour detailTrip={detailTrip} a1={a1} a2={a2} a3={a3} a4={a4} />
+          <InfoTrip detailTrip={detailTrip} />
+          <DescTour detailTrip={detailTrip} />
+          <PriceTour
+            fetchTourData={fetchTourData}
+            setCounter={setCounter}
+            detailTrip={detailTrip}
+            transCount={transCount}
+            handleBooking={handleBooking}
+            setModalLogin={setModalLogin}
+          />
+        </>
       )}
-      <ImageTour a1={a1} a2={a2} a3={a3} a4={a4} />
-      <InfoTrip detailTrip={detailTrip} />
-      <DescTour detailTrip={detailTrip} />
-      <PriceTour
-        fetchTourData={fetchTourData}
-        setCounter={setCounter}
-        detailTrip={detailTrip}
-        transCount={transCount}
-        handleBooking={handleBooking}
-        setModalLogin={setModalLogin}
-      />
     </div>
   );
 };

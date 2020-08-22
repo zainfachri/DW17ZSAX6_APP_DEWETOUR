@@ -6,7 +6,8 @@ import "./AddTrip.css";
 
 const AddTrip = () => {
   const [countryGet, setCountry] = useState([]);
-  const [formAddTrip, setFormAddTrip] = useState({
+  const [previewSrc, setPreviewSrc] = useState(null);
+  const [formAdd, setFormAddTrip] = useState({
     title: "",
     countryId: 0,
     accomodation: "",
@@ -18,7 +19,7 @@ const AddTrip = () => {
     price: 0,
     quota: 0,
     description: "",
-    image: "",
+    tripImage: "",
   });
   const [error, setError] = useState("");
   const {
@@ -33,23 +34,47 @@ const AddTrip = () => {
     price,
     quota,
     description,
-    image,
-  } = formAddTrip;
+    tripImage,
+  } = formAdd;
 
   const handleChange = (event) => {
-    setFormAddTrip({
-      ...formAddTrip,
-      [event.target.name]: event.target.value,
-    });
+    const updateForm = { ...formAdd };
+    updateForm[event.target.name] =
+      event.target.type === "file" ? event.target.files[0] : event.target.value;
+    setFormAddTrip(updateForm);
+    // setFormAddTrip({
+    //   ...formAddTrip,
+    //   [event.target.name]: event.target.value,
+    // });
+  };
+  const onChangeFileImage = (event) => {
+    let file = event.target.files[0];
+    let reader = new FileReader();
+
+    reader.onload = () => {
+      setPreviewSrc([reader.result]);
+    };
+    reader.readAsDataURL(file);
   };
 
   const AddTour = async (event) => {
     event.preventDefault();
+    let fd = new FormData();
+
+    fd.append("title", title);
+    fd.append("countryId", countryId);
+    fd.append("accomodation", accomodation);
+    fd.append("transportation", transportation);
+    fd.append("eat", eat);
+    fd.append("day", day);
+    fd.append("night", night);
+    fd.append("dateTrip", dateTrip);
+    fd.append("price", price);
+    fd.append("quota", quota);
+    fd.append("description", description);
+    fd.append("tripImage", tripImage);
     try {
-      const res = await axios.post(
-        "http://localhost:5001/api/v1/trip",
-        formAddTrip
-      );
+      const res = await axios.post("http://localhost:5001/api/v1/trip", fd);
       window.location.reload();
     } catch (err) {
       const resError = err.response.data.error.message;
@@ -66,7 +91,7 @@ const AddTrip = () => {
     getCountry();
   }, []);
   const getDateTrip = (day) => {
-    setFormAddTrip({ ...formAddTrip, dateTrip: day });
+    setFormAddTrip({ ...formAdd, dateTrip: day });
   };
   return (
     <div className="container add-trip-wrapper">
@@ -75,7 +100,7 @@ const AddTrip = () => {
         <div className="my-3 alert alert-danger text-center">{error}</div>
       )}
       <form
-        formAddTrip={formAddTrip}
+        formAdd={formAdd}
         className="add-trip"
         enctype="multipart/form-data"
       >
@@ -211,9 +236,15 @@ const AddTrip = () => {
         <div className="input-group">
           <input
             type="file"
-            name="image"
-            onChange={(event) => handleChange(event)}
+            name="tripImage"
+            onChange={(event) => {
+              handleChange(event);
+              onChangeFileImage(event);
+            }}
           />
+        </div>
+        <div className="input-group" style={{ marginTop: "10px" }}>
+          <img src={previewSrc} className="preview-film" alt="" width="300" />
         </div>
         <button
           type="submit"

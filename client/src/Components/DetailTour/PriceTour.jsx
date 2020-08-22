@@ -1,21 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 
 const PriceTour = ({
   setModalLogin,
-  fetchTourData,
   detailTrip,
   transCount,
   setCounter,
   handleBooking,
 }) => {
-  const { isLoading, data: detail } = useQuery("trip", fetchTourData);
-  // const result = detail.data;
-
-  // const price = detailTrip.price;
-  // const counterTotal = counter * price;
-
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "IDR",

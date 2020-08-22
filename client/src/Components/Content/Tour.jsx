@@ -40,7 +40,10 @@ const Tour = () => {
                 }}
               >
                 <div className="picture">
-                  <img src={`http://localhost:5001/uploads/${tour.image}`} />
+                  <img
+                    src={`http://localhost:5001/uploads/${tour.image}`}
+                    height="241px"
+                  />
                   <p>{tour.quota}/15</p>
                 </div>
                 <p>

@@ -2,9 +2,7 @@ import React from "react";
 import Moment from "react-moment";
 import { useQuery } from "react-query";
 
-const InfoTrip = ({ fetchTourData, detailTrip }) => {
-  const { isLoading, data: detail } = useQuery("trip", fetchTourData);
-  // const result = detail.data;
+const InfoTrip = ({ detailTrip }) => {
   return (
     <div>
       <div className="info-trip">

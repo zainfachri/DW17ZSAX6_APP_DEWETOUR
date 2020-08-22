@@ -13,7 +13,7 @@ const PaymentTotal = ({ payTrans }) => {
         <tr>
           <th>No</th>
           <th>Full Name</th>
-          <th>Gender</th>
+          <th>Address</th>
           <th>Phone</th>
           <th colspan="2"></th>
         </tr>
