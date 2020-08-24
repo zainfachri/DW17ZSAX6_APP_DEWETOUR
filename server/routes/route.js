@@ -27,7 +27,12 @@ const {
   updateTransaction,
 } = require("../controller/transaction");
 
-const { showUser, deleteUser } = require("../controller/user");
+const {
+  showUser,
+  showUserDetail,
+  updateUser,
+  deleteUser,
+} = require("../controller/user");
 const { register, login } = require("../controller/auth");
 const { authenticated } = require("../middleware/authControl");
 
@@ -49,6 +54,8 @@ router.post("/transaction", fileUpload(), createTransaction);
 router.patch("/transaction/:id", updateTransaction);
 
 router.get("/user", showUser);
+router.get("/user/:id", showUserDetail);
+router.patch("/user/:id", fileUpload(), updateUser);
 router.delete("/user/:id", deleteUser);
 
 router.post("/register", register);

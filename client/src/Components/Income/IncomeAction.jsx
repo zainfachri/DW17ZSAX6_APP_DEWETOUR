@@ -8,9 +8,11 @@ import Logo from "../../img/tour/logo-ex.png";
 const IncomeAction = () => {
   const { id } = useParams();
   const [getTransDet, setTransDet] = useState([]);
+
   const [approveStat, setApprove] = useState({
     status: "Approve",
   });
+
   const [cancelStat, setCancel] = useState({
     status: "Cancel",
   });

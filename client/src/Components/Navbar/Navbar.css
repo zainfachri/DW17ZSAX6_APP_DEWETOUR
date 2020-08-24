@@ -8,13 +8,14 @@
   width: 10%;
   left: 79%;
   padding-right: 30px;
-  top: 0;
+  top: -5px;
   text-align: right;
   margin: 10px 100px;
 }
 .iconPic img {
   cursor: pointer;
   width: 60px;
+  height: 60px;
   border: solid 2px #ffaf00;
   border-radius: 50%;
 }

@@ -5,20 +5,21 @@
 .profile {
   background-color: #fff;
   width: 55%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   padding: 20px 0;
   margin: 0 auto;
 }
 .custom-file {
   margin-top: 10px;
 }
-.person-info,
 .profile-img {
-  display: inline-block;
+  padding-right: 50px;
 }
 .person-info {
   padding: 25px;
-  /* margin-right: 60px; */
-  width: 60%;
+  padding-left: 50px;
+  grid-column: 1 / 3;
 }
 .personDesc {
   overflow: auto;
