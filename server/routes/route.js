@@ -22,6 +22,7 @@ const {
 const {
   showTransaction,
   showTransactionDetail,
+  showHistory,
   createTransaction,
   updateTransaction,
 } = require("../controller/transaction");
@@ -43,7 +44,8 @@ router.delete("/trip/:id", deleteTrip);
 
 router.get("/transaction", showTransaction);
 router.get("/transaction/:id", showTransactionDetail);
-router.post("/transaction", createTransaction);
+router.get("/transaction/user/:userId", showHistory);
+router.post("/transaction", fileUpload(), createTransaction);
 router.patch("/transaction/:id", updateTransaction);
 
 router.get("/user", showUser);

@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
         // through: "TransTrip",
         foreignKey: "tripId",
       });
+      Transaction.belongsTo(models.User, {
+        as: "user",
+        foreignKey: "userId",
+      });
     }
   }
   Transaction.init(
@@ -22,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       status: DataTypes.STRING,
       attachment: DataTypes.STRING,
       tripId: DataTypes.INTEGER,
+      userId: DataTypes.INTEGER,
     },
     {
       sequelize,

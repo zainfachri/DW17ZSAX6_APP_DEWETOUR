@@ -10,15 +10,13 @@
 .table-income h1 {
   margin: 20px 0;
 }
-.income td {
+.income td,
+.income th {
   padding: 20px 20px !important;
 }
 .income i {
   font-size: 24px;
   color: #2fc5f7;
-}
-table td {
-  cursor: pointer;
 }
 .income tr:nth-child(even) {
   background-color: #fff;

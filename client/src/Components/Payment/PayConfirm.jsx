@@ -3,30 +3,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { useQuery, useMutation, queryCache } from "react-query";
 
-const PayConfirm = ({ setModalPayment }) => {
-  const { id } = useParams();
-
-  const [transCount, setCounter] = useState({
-    status: "Waiting Approved",
-    attachment: "test.jpg",
-    tripId: id,
-  });
-
-  const handleOrder = async () => {
-    const postOrder = await axios.patch(
-      "http://localhost:5001/api/v1/transaction",
-      transCount
-    );
-    return postOrder;
-  };
-  const [newBooking] = useMutation(handleOrder, {
-    onSuccess: () => {
-      queryCache.prefetchQuery("trip");
-    },
-  });
-  const handleBooking = () => {
-    newBooking();
-  };
+const PayConfirm = ({ setModalPayment, handleBooking }) => {
   return (
     <div className="payconfirmBg">
       <div class="modal-dialog payconfirm">

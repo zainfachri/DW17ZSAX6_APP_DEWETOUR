@@ -8,7 +8,7 @@ const PrivateUser = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(props) =>
-        userId == 2 && token ? (
+        userId !== 1 && token ? (
           <Component {...props} />
         ) : !token ? (
           <Redirect to="/" />

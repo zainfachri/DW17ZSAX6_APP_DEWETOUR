@@ -13,16 +13,28 @@ const DropDown = ({ showDropDown, logOut }) => {
           <div className="drop-inside-top">
             <div className="drop-top">
               {res.roleId == 1 ? (
-                <Link to="/income-trip">
-                  <div className="drop-list" onClick={() => showDropDown()}>
-                    <i
-                      class="fa fa-globe"
-                      aria-hidden="true"
-                      style={{ color: "#2FC5F7" }}
-                    ></i>
-                    <span>Trip</span>
-                  </div>
-                </Link>
+                <>
+                  <Link to="/income-trip">
+                    <div className="drop-list" onClick={() => showDropDown()}>
+                      <i
+                        class="fa fa-globe"
+                        aria-hidden="true"
+                        style={{ color: "#2FC5F7" }}
+                      ></i>
+                      <span>Trip</span>
+                    </div>
+                  </Link>
+                  <Link to="/income-transaction">
+                    <div className="drop-list" onClick={() => showDropDown()}>
+                      <i
+                        class="fa fa-list"
+                        aria-hidden="true"
+                        style={{ color: "#9C27B0" }}
+                      ></i>
+                      <span>Income</span>
+                    </div>
+                  </Link>
+                </>
               ) : (
                 <>
                   <Link to="/profile">
@@ -47,16 +59,6 @@ const DropDown = ({ showDropDown, logOut }) => {
                   </Link>
                 </>
               )}
-              {/* <Link to="/income-transaction">
-                <div className="drop-list" onClick={() => showDropDown()}>
-                  <i
-                    class="fa fa-list"
-                    aria-hidden="true"
-                    style={{ color: "#9C27B0" }}
-                  ></i>
-                  <span>Income</span>
-                </div>
-              </Link> */}
             </div>
           </div>
         </div>

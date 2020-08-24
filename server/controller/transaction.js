@@ -1,25 +1,35 @@
-const { Transaction, Trip, Country } = require("../models");
+const { Transaction, Trip, Country, User } = require("../models");
 
 exports.showTransaction = async (req, res) => {
   try {
     const transaction = await Transaction.findAll({
-      include: {
-        model: Trip,
-        as: "trip",
-        attributes: {
-          exclude: ["countryId", "createdAt", "updatedAt"],
-        },
-        include: {
-          model: Country,
-          as: "country",
+      include: [
+        {
+          model: User,
+          as: "user",
           attributes: {
             exclude: ["createdAt", "updatedAt"],
           },
         },
-      },
+        {
+          model: Trip,
+          as: "trip",
+          include: {
+            model: Country,
+            as: "country",
+            attributes: {
+              exclude: ["createdAt", "updatedAt"],
+            },
+          },
+          attributes: {
+            exclude: ["countryId", "createdAt", "updatedAt"],
+          },
+        },
+      ],
+      order: [["id", "DESC"]],
 
       attributes: {
-        exclude: ["tripId", "createdAt", "updatedAt"],
+        exclude: ["createdAt", "updatedAt"],
       },
     });
     res.status(200).send({
@@ -40,18 +50,34 @@ exports.showTransactionDetail = async (req, res) => {
   try {
     const { id } = req.params;
     const getTransaction = await Transaction.findOne({
-      include: {
-        model: Trip,
-        as: "trip",
-        attributes: {
-          exclude: ["createdAt", "updatedAt"],
+      include: [
+        {
+          model: User,
+          as: "user",
+          attributes: {
+            exclude: ["createdAt", "updatedAt", "password", "roleId"],
+          },
         },
-      },
+        {
+          model: Trip,
+          as: "trip",
+          include: {
+            model: Country,
+            as: "country",
+            attributes: {
+              exclude: ["createdAt", "updatedAt"],
+            },
+          },
+          attributes: {
+            exclude: ["countryId", "createdAt", "updatedAt"],
+          },
+        },
+      ],
       where: {
         id,
       },
       attributes: {
-        exclude: ["tripId", "createdAt", "updatedAt"],
+        exclude: ["tripId", "userId", "createdAt", "updatedAt"],
       },
     });
 
@@ -73,13 +99,60 @@ exports.showTransactionDetail = async (req, res) => {
     });
   }
 };
-
-exports.createTransaction = async (req, res) => {
+exports.showHistory = async (req, res) => {
   try {
-    const addTransaction = await Transaction.create(req.body, {
+    const { userId } = req.params;
+    const getHistory = await Transaction.findAll({
+      include: {
+        model: Trip,
+        as: "trip",
+        attributes: {
+          exclude: ["createdAt", "updatedAt"],
+        },
+        include: {
+          model: Country,
+          as: "country",
+          attributes: {
+            exclude: ["createdAt", "updatedAt"],
+          },
+        },
+      },
+      where: {
+        userId: userId,
+      },
+      order: [["id", "DESC"]],
       attributes: {
         exclude: ["createdAt", "updatedAt"],
       },
+    });
+
+    if (!getHistory)
+      return res.status(400).send({
+        message: `Data not found`,
+      });
+
+    res.status(200).send({
+      message: "response Success",
+      data: getHistory,
+    });
+  } catch (error) {
+    console.log(err);
+    response.status(500).send({
+      error: {
+        message: "Server ERROR",
+      },
+    });
+  }
+};
+exports.createTransaction = async (req, res) => {
+  try {
+    const { bookImage } = req.files;
+    const imageBookName = bookImage.name;
+    await bookImage.mv(`./uploads/${imageBookName}`);
+
+    const addTransaction = await Transaction.create({
+      ...req.body,
+      attachment: imageBookName,
     });
     res.status(200).send({
       message: "Transaction has been Created",

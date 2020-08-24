@@ -45,35 +45,6 @@ const Register = ({ setModalRegister, setModalLogin, handleLogin }) => {
       console.log(err);
     }
   };
-  // const addUser = async () => {
-  //   const response = await fetch("http://localhost:5001/api/v1/register", {
-  //     method: "POST",
-  //     body: JSON.stringify(formRegister),
-  //     headers: new Headers({
-  //       "Content-Type": "Application/JSON",
-  //     }),
-  //   }).then(refetch);
-
-  //   return response.json();
-  // };
-
-  // const { refetch, error, data } = useQuery("trip", addUser);
-  // const [handleAddUser] = useMutation(addUser, {
-  //   onSuccess: () => {
-  //     queryCache.prefetchQuery("register");
-  //   },
-  // });
-
-  // const handleChange = (event) => {
-  //   setFormRegister({
-  //     ...formRegister,
-  //     [event.target.name]: event.target.value,
-  //   });
-  // };
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   handleAddUser();
-  // };
 
   return (
     <div className="register-page">

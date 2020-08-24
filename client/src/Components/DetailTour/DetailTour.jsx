@@ -17,22 +17,23 @@ import a4 from "../../img/tour/a4.png";
 const DetailTour = ({ setModalLogin }) => {
   const [detailTrip, setDetailTrip] = useState([]);
   const { id } = useParams();
-
+  const user = localStorage.getItem("userId");
   const [transCount, setCounter] = useState({
     counterQty: 1,
     total: 0,
     status: "Waiting Payment",
-    attachment: "test.jpg",
+    attachment: "",
     tripId: id,
+    userId: user,
   });
 
-  const handleOrder = async () => {
-    const postOrder = await axios.post(
-      "http://localhost:5001/api/v1/transaction",
-      transCount
-    );
-    return postOrder;
-  };
+  // const handleOrder = async () => {
+  //   const postOrder = await axios.post(
+  //     "http://localhost:5001/api/v1/transaction",
+  //     transCount
+  //   );
+  //   return postOrder;
+  // };
   const fetchTourData = async () => {
     // const response = await fetch(`http://localhost:5001/api/v1/trip/${id}`);
     // return response.json();
@@ -41,16 +42,16 @@ const DetailTour = ({ setModalLogin }) => {
     setCounter({ ...transCount, total: result.data.data.price });
     setDetailTrip(resData);
   };
-  const [newBooking] = useMutation(handleOrder, {
-    onSuccess: () => {
-      queryCache.prefetchQuery("trip");
-    },
-  });
+  // const [newBooking] = useMutation(handleOrder, {
+  //   onSuccess: () => {
+  //     queryCache.prefetchQuery("trip");
+  //   },
+  // });
   const { isLoading, data: detail } = useQuery("trip", fetchTourData);
 
-  const handleBooking = () => {
-    newBooking();
-  };
+  // const handleBooking = () => {
+  //   newBooking();
+  // };
   // const result = detail.data;
   // const {data.data.trip} = tour;
   // console.log(result);
@@ -69,18 +70,17 @@ const DetailTour = ({ setModalLogin }) => {
             </h1>
             <p style={{ fontSize: 22, color: "#A8A8A8", fontWeight: "700" }}>
               {detailTrip.country.name}
-              {/* Country */}
             </p>
           </div>
           <ImageTour detailTrip={detailTrip} a1={a1} a2={a2} a3={a3} a4={a4} />
           <InfoTrip detailTrip={detailTrip} />
           <DescTour detailTrip={detailTrip} />
           <PriceTour
+            user={user}
             fetchTourData={fetchTourData}
             setCounter={setCounter}
             detailTrip={detailTrip}
             transCount={transCount}
-            handleBooking={handleBooking}
             setModalLogin={setModalLogin}
           />
         </>

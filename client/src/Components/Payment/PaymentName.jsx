@@ -33,7 +33,9 @@ const PaymentName = ({ payTrip, fetchTourData }) => {
       ) : (
         <tbody>
           <tr>
-            <td>{payTrip.country.name}</td>
+            <td>
+              <strong>{payTrip.country.name}</strong>
+            </td>
             <td>
               <Moment format="D MMM YYYY" withTitle>
                 {payTrip.dateTrip}

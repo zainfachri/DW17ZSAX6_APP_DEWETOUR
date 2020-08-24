@@ -13,6 +13,7 @@ exports.showTrip = async (req, res) => {
       attributes: {
         exclude: ["countryId", "createdAt", "updatedAt"],
       },
+      order: [["id", "DESC"]],
     });
 
     res.status(200).send({

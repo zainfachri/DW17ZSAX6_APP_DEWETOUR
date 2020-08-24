@@ -23,6 +23,7 @@ const Navbar = ({ setModalLogin, setModalRegister }) => {
   };
   const handleClick = () => {
     history.push("/");
+    localStorage.removeItem("totalPrice");
   };
   return (
     <>

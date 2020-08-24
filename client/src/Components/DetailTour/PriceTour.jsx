@@ -7,7 +7,7 @@ const PriceTour = ({
   detailTrip,
   transCount,
   setCounter,
-  handleBooking,
+  // handleBooking,
 }) => {
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -31,7 +31,7 @@ const PriceTour = ({
       total: transCount.total + detailTrip.price,
     });
   };
-
+  localStorage.setItem("totalPrice", transCount.total);
   return (
     <div>
       <div className="row number">
@@ -77,11 +77,13 @@ const PriceTour = ({
                   BOOK NOW
                 </button>
               ) : (
-                <Link to={`/payment/${detailTrip.id}`}>
+                <Link
+                  to={`/payment/${detailTrip.id}/qty=${transCount.counterQty}`}
+                >
                   <button
                     type="submit"
                     class="btn btn-warning btn-lg"
-                    onClick={handleBooking}
+                    // onClick={handleBooking}
                   >
                     BOOK NOW
                   </button>

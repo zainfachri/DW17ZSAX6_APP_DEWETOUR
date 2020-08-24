@@ -9,7 +9,7 @@ const Profile = () => {
       <div className="container">
         <h1 style={{ marginTop: 40, fontWeight: 700 }}>History Trip</h1>
       </div>
-      <PayBill />
+      {/* <PayBill /> */}
     </div>
   );
 };

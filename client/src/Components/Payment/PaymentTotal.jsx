@@ -1,12 +1,12 @@
 import React from "react";
 
-const PaymentTotal = ({ payTrans }) => {
+const PaymentTotal = ({ totalPrice, qty }) => {
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "IDR",
     minimumFractionDigits: 0,
   });
-
+  const res = JSON.parse(localStorage.getItem("userData"));
   return (
     <table className="table pay-price" style={{ width: "100%" }}>
       <thead>
@@ -21,11 +21,11 @@ const PaymentTotal = ({ payTrans }) => {
       <tbody>
         <tr>
           <td>1</td>
-          <td>M.Fachri Zain</td>
-          <td>Male</td>
-          <td>082164894643</td>
+          <td>{res.fullName}</td>
+          <td>{res.address}</td>
+          <td>{res.phone}</td>
           <th>Qty</th>
-          <th>: {payTrans.counterQty}</th>
+          <th>: {qty}</th>
         </tr>
         <tr>
           <td colspan="4"></td>
@@ -33,7 +33,7 @@ const PaymentTotal = ({ payTrans }) => {
           <th>
             :{" "}
             <span style={{ color: "#FF0000" }}>
-              {formatter.format(payTrans.total)}
+              {formatter.format(totalPrice)}
             </span>
           </th>
         </tr>

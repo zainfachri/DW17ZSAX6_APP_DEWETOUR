@@ -23,6 +23,12 @@
   text-align: center;
   margin-top: 20px;
 }
+
+.book-preview {
+  content: "Select some files";
+  width: 100px;
+  margin-top: 10px;
+}
 .pay-price td {
   color: #959595;
 }
@@ -30,6 +36,11 @@
   padding: 5px 10px;
   color: #ec7a7a;
   background-color: #ec7a7a26;
+}
+.waiting-approve {
+  padding: 5px 10px;
+  color: #ff9800;
+  background-color: #ff980036;
 }
 .payconfirmBg {
   width: 100%;
