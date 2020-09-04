@@ -65,9 +65,7 @@ exports.updateUser = async (req, res) => {
 
     res.status(200).send({
       message: "User has been Updated",
-      data: {
-        changeUser,
-      },
+      data: changeUser,
     });
   } catch (error) {
     console.log(err);

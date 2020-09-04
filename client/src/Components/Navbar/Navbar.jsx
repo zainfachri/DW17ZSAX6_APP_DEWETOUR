@@ -41,9 +41,9 @@ const Navbar = ({ setModalLogin, setModalRegister }) => {
     }
   };
 
-  // useEffect(() => {
-  //   getUser();
-  // }, []);
+  useEffect(() => {
+    getUser();
+  }, []);
 
   return (
     <>
@@ -80,7 +80,7 @@ const Navbar = ({ setModalLogin, setModalRegister }) => {
             </>
           ) : (
             <div className="iconPic">
-              {!userPic.userImg ? (
+              {!userPic || !userPic.userImg ? (
                 <img src={Profil} alt="" onClick={() => showDropDown()} />
               ) : (
                 <img

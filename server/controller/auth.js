@@ -13,7 +13,7 @@ exports.register = async (req, res) => {
       roleId: joi.number(),
       email: joi.string().email().min(10).required(),
       password: joi.string().min(8).required(),
-      phone: joi.string(),
+      phone: joi.number(),
       address: joi.string(),
     });
 

@@ -74,6 +74,11 @@ const Payment = () => {
   return (
     <>
       <div className="container payment">
+        {!previewSrc && (
+          <div class="alert alert-danger text-center" role="alert">
+            Upload Proof of Payment
+          </div>
+        )}
         <div className="row inside-pay">
           <PaymentName payTrip={payTrip} fetchTourData={fetchTourData} />
           <PaymentBook
@@ -92,7 +97,7 @@ const Payment = () => {
         />
       )}
       <div className="container">
-        <PayButton setModalPayment={setModalPayment} />
+        <PayButton setModalPayment={setModalPayment} previewSrc={previewSrc} />
       </div>
     </>
     // <Fragment>

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import Jumbotron from "../Navbar/Jumbotron";
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ setSearch }) => {
   return (
     <div>
       <Jumbotron />
@@ -22,6 +22,7 @@ const Header = () => {
             type="text"
             class="form-control find"
             placeholder="Find great places to holiday"
+            onChange={(e) => setSearch(e.target.value)}
           />
           <div class="input-group-append">
             <button
@@ -29,7 +30,7 @@ const Header = () => {
               type="button"
               id="button-addon2"
             >
-              Button
+              <i class="fa fa-search" aria-hidden="true"></i>
             </button>
           </div>
         </div>

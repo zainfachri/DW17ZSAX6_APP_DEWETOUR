@@ -13,38 +13,20 @@ const Profile = () => {
   const [userData, setUser] = useState([]);
   const [showButton, setButton] = useState(false);
   const [previewSrc, setPreviewSrc] = useState(null);
-
+  const [error, setError] = useState("");
   const [updateUser, setUpdate] = useState({
     imgUser: "",
   });
-
+  const { imgUser } = updateUser;
   const user = localStorage.getItem("userId");
 
-  const editUser = async () => {
-    let fd = new FormData();
-    fd.append("imgUser", updateUser.imgUser);
-    try {
-      const result = await axios.patch(
-        `http://localhost:5001/api/v1/user/${user}`,
-        fd
-      );
-      return result;
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const handleChange = (event) => {
-    setUpdate({
-      ...updateUser,
-      [event.target.name]:
-        event.target.type === "file"
-          ? event.target.files[0]
-          : event.target.value,
-    });
+    const updateForm = { ...updateUser };
+    updateForm[event.target.name] =
+      event.target.type === "file" ? event.target.files[0] : event.target.value;
+    setUpdate(updateForm);
     setButton(true);
   };
-
   const onChangeFileImage = (event) => {
     let file = event.target.files[0];
     let reader = new FileReader();
@@ -53,6 +35,22 @@ const Profile = () => {
       setPreviewSrc([reader.result]);
     };
     reader.readAsDataURL(file);
+  };
+
+  const editUser = async () => {
+    let fd = new FormData();
+
+    fd.append("imgUser", imgUser);
+    try {
+      const result = await axios.patch(
+        `http://localhost:5001/api/v1/user/${user}`,
+        fd
+      );
+    } catch (err) {
+      const resError = err.response.data.error.message;
+      setError(resError);
+      console.log(err);
+    }
   };
 
   const getUser = async () => {
@@ -68,6 +66,7 @@ const Profile = () => {
   };
   useEffect(() => {
     getUser();
+    editUser();
   }, []);
 
   return (
@@ -125,6 +124,7 @@ const Profile = () => {
           onChangeFileImage={onChangeFileImage}
           handleChange={handleChange}
           editUser={editUser}
+          imgUser={imgUser}
         />
       </div>
     </div>

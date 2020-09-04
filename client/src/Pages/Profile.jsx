@@ -160,13 +160,13 @@ const Profile = () => {
                   </div>
                 </div>
               )}
-              {!trans.status && (
+              {/* {!trans.status && (
                 <div>
                   <h2 style={{ textAlign: "center" }}>
                     Your History Was Empty
                   </h2>
                 </div>
-              )}
+              )} */}
             </>
           ))}
         </>

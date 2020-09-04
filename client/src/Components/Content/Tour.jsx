@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
-import { useQuery, useMutation, queryCache } from "react-query";
+import { useQuery } from "react-query";
 
 // import tourData from "../../DataTour/TourData";
 
-const Tour = () => {
-  const [trip, setTrip] = useState([]);
-  let history = useHistory();
+const Tour = ({ trip, history, fetchTourData, filteredName }) => {
+  // const [trip, setTrip] = useState([]);
+  // let history = useHistory();
 
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -15,13 +14,11 @@ const Tour = () => {
     minimumFractionDigits: 0,
   });
 
-  const fetchTourData = async () => {
-    // const response = await fetch("http://localhost:5001/api/v1/trip");
-    // return response.json();
-    const result = await axios.get("http://localhost:5001/api/v1/trip");
-    const resData = result.data.data;
-    setTrip(resData);
-  };
+  // const fetchTourData = async () => {
+  //   const result = await axios.get("http://localhost:5001/api/v1/trip");
+  //   const resData = result.data.data;
+  //   setTrip(resData);
+  // };
   const { isLoading, isError, data, error } = useQuery("trip", fetchTourData);
   return (
     <div>
@@ -29,7 +26,7 @@ const Tour = () => {
         <h1>Loading...</h1>
       ) : (
         <div className="tourList">
-          {trip.map((tour) => (
+          {filteredName.map((tour) => (
             <div className="list-tour">
               {/* <Link to={`/detail/${tour.id}`}> */}
               <div

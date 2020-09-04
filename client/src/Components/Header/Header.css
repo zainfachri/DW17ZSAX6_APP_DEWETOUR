@@ -33,7 +33,6 @@ header {
   box-shadow: -1px 1px 14px 3px #fff;
 }
 .find::placeholder {
-  opacity: 0;
   font-size: 18px;
 }
 .reg,

@@ -173,7 +173,7 @@ const AddTrip = () => {
             name="day"
             onChange={(event) => handleChange(event)}
           />{" "}
-          <span>Day</span>
+          <span className="daynight">Day</span>
           <input
             type="number"
             className="night"
@@ -181,7 +181,7 @@ const AddTrip = () => {
             name="night"
             onChange={(event) => handleChange(event)}
           />{" "}
-          <span>Night</span>
+          <span className="daynight">Night</span>
         </div>
 
         <label htmlFor="">Date Trip</label>

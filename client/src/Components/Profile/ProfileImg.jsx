@@ -17,22 +17,22 @@ const ProfileImg = ({
       <form updateUser={updateUser} enctype="multipart/form-data">
         <div className="profilePic">
           {!userData.userImg && !previewSrc ? (
-            <img src={Profile} alt="Profile" width="300px" height="345px" />
+            <img src={Profile} alt="" width="300px" height="345px" />
           ) : previewSrc ? (
-            <img src={previewSrc} alt="Profile" width="300px" height="345px" />
+            <img src={previewSrc} alt="" width="300px" height="345px" />
           ) : (
             <img
               src={`http://localhost:5001/uploads/${userData.userImg}`}
-              alt="Profile"
+              alt=""
               width="300px"
               height="345px"
             />
           )}
         </div>
-        <div class="custom-file">
+        {/* <div class="custom-file">
           <input
-            name="imgUser"
             type="file"
+            name="imgUser"
             onChange={(event) => {
               handleChange(event);
               onChangeFileImage(event);
@@ -47,7 +47,7 @@ const ProfileImg = ({
           >
             Save
           </button>
-        )}
+        )} */}
       </form>
     </div>
   );
